@@ -1,4 +1,4 @@
-import { selectorWord } from './app.selectors';
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { goAction } from './app.actions';
 import { AppState } from './app.reducers';
@@ -11,14 +11,16 @@ import {Store} from '@ngrx/store';
 })
 export class AppComponent implements OnInit {
   word = 'hello!!!';
-  currentWord = '';
+  currentWord: string;
+  currentWord$: Observable<AppState>;
 
   constructor (
-    private store: Store<AppState>
+    private store: Store<{root: AppState}>
   ) {}
 
   ngOnInit() {
-    this.store.select(selectorWord).subscribe(state => console.log(state));
+    this.currentWord$ = this.store.select('root');
+    this.currentWord$.subscribe(({word}) => this.currentWord = word);
   }
 
   onClick() {

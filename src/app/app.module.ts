@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     StoreModule.forRoot({
-      word: appRedusers.reducer,
+      root: appRedusers.reducer,
     })
   ],
   providers: [],
