@@ -1,12 +1,12 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import * as AppActions from './app.actions';
 
-export interface State {
+export interface AppState {
   word: string;
   answer: string;
 }
 
-export const initialState: State = {
+export const initialState: AppState = {
   word: '',
   answer: '',
 }
@@ -17,4 +17,4 @@ const appReducer = createReducer(
   on(AppActions.requestAction, (state, {answer}) => ({ ...state, answer })),
 );
 
-export const reducer = (state: State | undefined, action: Action) => appReducer(state, action);
+export const reducer = (state: AppState | undefined, action: Action) => appReducer(state, action);
