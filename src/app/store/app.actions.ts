@@ -2,7 +2,7 @@ import {createAction, props} from '@ngrx/store';
 
 export const goAction = createAction(
   '[App]: Go! Action',
-  props<{word: string}>()
+  props<{input: string}>()
 );
 
 export const requestAction = createAction(

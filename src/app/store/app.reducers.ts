@@ -4,13 +4,13 @@ import * as AppActions from './app.actions';
 
 
 export const initialState: AppState = {
-  word: '',
+  input: '',
   answer: '',
 }
 
 const appReducer = createReducer(
   initialState,
-  on(AppActions.goAction, (state, {word}) => ({ ...state, word })),
+  on(AppActions.goAction, (state, {input}) => ({ ...state, input })),
   on(AppActions.requestAction, (state, {answer}) => ({ ...state, answer })),
 );
 

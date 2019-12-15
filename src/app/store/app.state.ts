@@ -1,4 +1,4 @@
 export interface AppState {
-  word: string;
+  input: string;
   answer: string;
 }

@@ -1,9 +1,9 @@
-<input [(ngModel)]="word" />
+<input [(ngModel)]="input" />
 <button (click)="onClick()">Go!</button>
 <h4>W/o selector:</h4>
-<div>Current word from component: {{currentWord}}</div>
-<div>Current word for template: {{currentWord$ | async}}</div>
+<div>Current input from component: {{currentInput}}</div>
+<div>Current input for template: {{currentInput$ | async}}</div>
 
 <h4>With selector:</h4>
-<div>Current word from component: {{currentWordSelected}}</div>
-<div>Current word for template: {{currentWordSelected$ | async}}</div>
+<div>Current input from component: {{currentInputSelected}}</div>
+<div>Current input for template: {{currentInputSelected$ | async}}</div>

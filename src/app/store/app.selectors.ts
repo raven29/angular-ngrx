@@ -3,9 +3,9 @@ import { createSelector } from '@ngrx/store';
  
 export const selectRootState = (state: {root: AppState}): AppState => state.root;
  
-export const selectorWord = createSelector(
+export const selectorInput = createSelector(
   selectRootState,
-  (state: AppState) => state.word
+  (state: AppState) => state.input
 );
 
 export const selectorAnswer = createSelector(

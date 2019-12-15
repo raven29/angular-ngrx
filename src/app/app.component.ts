@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { goAction } from './store/app.actions';
 import { AppState } from './store/app.state';
-import { selectorWord } from './store/app.selectors';
+import { selectorInput } from './store/app.selectors';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 
@@ -12,12 +12,12 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  word = 'hello!!!';
+  input = 'hello!!!';
   currentState$: Observable<AppState>;
-  currentWord: string;
-  currentWord$: Observable<string>;
-  currentWordSelected: string;
-  currentWordSelected$: Observable<string>;
+  currentInput: string;
+  currentInput$: Observable<string>;
+  currentInputSelected: string;
+  currentInputSelected$: Observable<string>;
 
   constructor (
     private store: Store<{root: AppState}>
@@ -25,15 +25,15 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.currentState$ = this.store.select('root');
-    this.currentState$.subscribe(({word}) => this.currentWord = word);
-    this.currentWord$ = this.currentState$.pipe(map(({word}) => word));
+    this.currentState$.subscribe(({input}) => this.currentInput = input);
+    this.currentInput$ = this.currentState$.pipe(map(({input}) => input));
 
-    this.currentWordSelected$ = this.store.select(selectorWord);
-    this.currentWordSelected$.subscribe(word => this.currentWordSelected = word);
+    this.currentInputSelected$ = this.store.select(selectorInput);
+    this.currentInputSelected$.subscribe(input => this.currentInputSelected = input);
   }
 
   onClick() {
-    const {word} = this; 
-    this.store.dispatch(goAction({word}));
+    const {input} = this; 
+    this.store.dispatch(goAction({input}));
   }
 }
