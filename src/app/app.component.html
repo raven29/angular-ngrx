@@ -1,3 +1,9 @@
 <input [(ngModel)]="word" />
 <button (click)="onClick()">Go!</button>
-<div>Current word: {{currentWord}}</div>
+<h4>W/o selector:</h4>
+<div>Current word from component: {{currentWord}}</div>
+<div>Current word for template: {{currentWordForTemplate$ | async}}</div>
+
+<h4>With selector:</h4>
+<div>Current word from component: {{currentWordSelected}}</div>
+<div>Current word for template: {{currentWordSelected$ | async}}</div>

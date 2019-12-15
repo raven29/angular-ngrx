@@ -1,10 +1,7 @@
 import { Action, createReducer, on } from '@ngrx/store';
+import {AppState} from './app.state';
 import * as AppActions from './app.actions';
 
-export interface AppState {
-  word: string;
-  answer: string;
-}
 
 export const initialState: AppState = {
   word: '',
