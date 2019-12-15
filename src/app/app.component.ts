@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  input = 'hello!!!';
+  input = '2019-01-01';
   currentState$: Observable<AppState>;
   currentInput: string;
   currentInput$: Observable<string>;

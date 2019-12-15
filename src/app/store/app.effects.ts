@@ -10,11 +10,13 @@ export class AppEffects {
  
   loadMovies$ = createEffect(() => this.actions$.pipe(
     ofType(actions.goAction.type),
-    mergeMap((input) => {console.log(input); return this.http.get('https://api.exchangeratesapi.io/2020-01-12')
-      .pipe(
-        map((res) => {console.log(res);return ({ type: actions.requestAction.type, payload: res });}),
-        catchError(() => EMPTY)
-      )
+    mergeMap(({input}) => {
+      const date = input || 'latest';
+      return this.http.get(`https://api.exchangeratesapi.io/${date}`)
+        .pipe(
+          map((res) => {console.log(res);return ({ type: actions.requestAction.type, payload: res });}),
+          catchError(() => EMPTY)
+        )
       })
   ));
  
