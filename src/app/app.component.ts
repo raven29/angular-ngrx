@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { goAction } from './app.actions';
-import { AppState } from './app.state';
-import { selectorWord } from './app.selectors';
+import { goAction } from './store/app.actions';
+import { AppState } from './store/app.state';
+import { selectorWord } from './store/app.selectors';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 
